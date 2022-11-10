@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -64,10 +65,10 @@ public class GameController : MonoBehaviour
 
    #endregion
 
-   public void StartDialogue(string dialoguePath)
+   public void StartDialogue(string dialoguePath, UnityEvent onEndDialogue)
    {
       EnterDialogueMode();
-      dialogueController.StartDialogue(dialoguePath);
+      dialogueController.StartDialogue(dialoguePath, onEndDialogue);
    }
 
    private void EndDialogue()
