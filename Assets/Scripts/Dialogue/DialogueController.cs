@@ -4,8 +4,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
+using DG.Tweening;
+
 using Ink;
 using Ink.Runtime;
+
+#if UNITY_EDITOR
+using Ink.UnityIntegration;
+#endif
 
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,9 +56,13 @@ public class DialogueController : MonoBehaviour
                 // Initialize Ink.
                 inkStory = new Story(inkAsset.text);
                 inkStory.onError += OnInkError;
-                inkStory.BindExternalFunction<string>(nameof(Unity_Event), Unity_Event);
+                inkStory.BindExternalFunction<string>("Unity_Event", Unity_Event);
                 inkStory.BindExternalFunction<string>("Get_State", Get_State);
                 inkStory.BindExternalFunction<string, int>("Add_State", Add_State);
+
+#if UNITY_EDITOR
+                InkPlayerWindow.Attach(inkStory, InkPlayerWindow.InkPlayerParams.ForAttachedStories);
+#endif
         }
 
         private void OnEnable()
@@ -95,17 +105,22 @@ public class DialogueController : MonoBehaviour
 
         private void OpenDialogue()
         {
-         dialogueBox.gameObject.SetActive(true);    
+         dialogueBox.gameObject.SetActive(true);
+         dialogueBox.DOShow();
          
          DialogueOpened?.Invoke();
         }
 
         private void CloseDialogue()
         {
-                dialogueBox.gameObject.SetActive(false);
-                
                 // Deselect everything in the UI.
                 EventSystem.current.SetSelectedGameObject(null);
+
+                dialogueBox.DOHide()
+                           .OnComplete(() =>
+                                               { 
+                                                       dialogueBox.gameObject.SetActive(false);
+                                               });
 
                 DialogueClosed?.Invoke();
                 

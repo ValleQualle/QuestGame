@@ -30,6 +30,26 @@ Robot: Thanks for the info!
 -> END
 
 = island_follow_up
+{island_apples: -> island_done}
 Duckmen: Did you already check out the island?
+{Get_State("item_Apple") and not island_apples: -> island_apples}
 Just head over to the bridge and press the button.
+-> END
+
+= island_apples
+Robot: Yes, I even found some apples in the forest!
+Duckmen: Nice!
+Can I have one?
+* [Yes]
+    Robot: Sure, have one.
+    ~Add_State("item_Apple", -1) 
+    Duckmen: Thanks! <br><i>munch munch munch</i>
+    -> END
+*[No]
+    Robot: No, they're mine!
+    Duckmen: Oh, okay. :'C
+-> END
+
+= island_done
+Duckmen: It <b>is</b> a nice island, isn't it?
 -> END

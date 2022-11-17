@@ -9,6 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2224531428567887030, guid: 381557f746136d64fb02c4b1bbce71d9,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 2224531428567887030, guid: 381557f746136d64fb02c4b1bbce71d9,
+        type: 3}
       propertyPath: m_Name
       value: _Collectable
       objectReference: {fileID: 0}

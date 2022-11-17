@@ -9,8 +9,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2224531428567887030, guid: 381557f746136d64fb02c4b1bbce71d9,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 2224531428567887030, guid: 381557f746136d64fb02c4b1bbce71d9,
+        type: 3}
       propertyPath: m_Name
-      value: _Interactable
+      value: _NPC
       objectReference: {fileID: 0}
     - target: {fileID: 3939025525996987634, guid: 381557f746136d64fb02c4b1bbce71d9,
         type: 3}

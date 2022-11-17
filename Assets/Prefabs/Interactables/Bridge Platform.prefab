@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5617408108902670295}
   - component: {fileID: 4605532036977963187}
   - component: {fileID: 7784262086955912976}
+  - component: {fileID: 6932303556654701769}
   m_Layer: 0
   m_Name: Bridge Platform
   m_TagString: Untagged
@@ -344,3 +345,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &6932303556654701769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186921748147617323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db1d9a438665f409e50b5ab281ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 7220839532572250924}
+  retractedPosition: {x: 0, y: -0.2, z: -7}
+  extendedPosition: {x: 0, y: -0.2, z: -24}
+  startExtended: 0
+  moveDuration: 1
