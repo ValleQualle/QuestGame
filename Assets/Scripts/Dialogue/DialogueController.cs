@@ -80,8 +80,6 @@ public class DialogueController : MonoBehaviour
         {
                 DialogueBox.DialogueContinued -= OnDialogueContinued;
                 DialogueBox.ChoiceSelected -= OnChoiceSelected;
-
-
         }
 
         private void OnDestroy()

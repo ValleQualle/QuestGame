@@ -21,9 +21,14 @@ public class TriggerEvents : MonoBehaviour
 
     [Tooltip("Tag of the interacting collider to filter on.")]
     [SerializeField] private string reactOn = PlayerTag;
+
+    [Header("Advanced")]
+    [SerializeField] private bool combineTriggers = true;
     
     #endregion
 
+    private int triggerCount = 0;
+    
     #region Unity Event Functions
 
     //Called only in the editor when changing values in the inspector.
@@ -42,6 +47,15 @@ public class TriggerEvents : MonoBehaviour
         {
             return;
         }
+
+        triggerCount++;
+
+        if (triggerCount < 1)
+        {
+            triggerCount = 1;
+        }
+        
+        if (combineTriggers && triggerCount != 1) {return;}
         
         onTriggerEnter.Invoke(other);
     }
@@ -52,6 +66,15 @@ public class TriggerEvents : MonoBehaviour
         {
             return;
         }
+
+        triggerCount--;
+
+        if (triggerCount < 0)
+        {
+            triggerCount = 0;
+        }
+        
+        if (combineTriggers && triggerCount != 0) {return;}
         
         onTriggerExit.Invoke(other);
     }

@@ -50,19 +50,25 @@ public class GameController : MonoBehaviour
 
    #region Modes
 
-   private void EnterPlayMode()
+   public void EnterPlayMode()
    {
       // Esc changes the cursor visibility (ONLY in the unity editor!)
       Cursor.lockState = CursorLockMode.Locked;
       player.EnableInput();
    }
 
-   private void EnterDialogueMode()
+   public void EnterDialogueMode()
    {
       Cursor.lockState = CursorLockMode.None;
       player.DisableInput();
    }
 
+   public void EnterCutsceneMode()
+   {
+      Cursor.lockState = CursorLockMode.None;
+      player.DisableInput();
+   }
+   
    #endregion
 
    public void StartDialogue(string dialoguePath, UnityEvent onEndDialogue)

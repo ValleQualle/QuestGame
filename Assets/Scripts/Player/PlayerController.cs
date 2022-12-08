@@ -150,14 +150,14 @@ public class PlayerController : MonoBehaviour
         DisableInput();
     }
 
-    #endregion
-
     private void OnDestroy()
     {
         //unsubscribe from input events
         input.Player.Interact.performed -= Interact; 
 
     }
+    
+    #endregion
 
     #region Physics
 
