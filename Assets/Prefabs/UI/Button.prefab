@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 668904752715638223}
   - component: {fileID: 4494646798999745188}
   - component: {fileID: 6867926919070433942}
+  - component: {fileID: 8014851848775958252}
   - component: {fileID: 4767958689355655080}
   m_Layer: 0
   m_Name: Button
@@ -483,22 +484,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4217189804781410464}
-          m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 15
     callback:
       m_PersistentCalls:
@@ -557,6 +542,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8014851848775958252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7377355156672677568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81669620af7615d4599fe399807406bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4767958689355655080
 MonoBehaviour:
   m_ObjectHideFlags: 0

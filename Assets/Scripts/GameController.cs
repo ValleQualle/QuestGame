@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 
    private PlayerController player;
    private DialogueController dialogueController;
+   private MenuController menuController;
 
 
 
@@ -27,13 +28,23 @@ public class GameController : MonoBehaviour
 
       if (dialogueController == null)
       {
-         Debug.Log("No player found in scene", this);
+         Debug.Log("No dilogueController found in scene", this);
+      }
+
+      menuController = FindObjectOfType<MenuController>();
+
+      if (menuController == null)
+      {
+         Debug.Log("No MenuController found in scene", this);
       }
    }
-   
+
    private void OnEnable()
    {
       DialogueController.DialogueClosed += EndDialogue;
+
+      MenuController.BaseMenuOpening += EnterPauseMode;
+      MenuController.BaseMenuClosed += EnterPlayMode;
    }
 
    private void Start()
@@ -44,6 +55,9 @@ public class GameController : MonoBehaviour
    private void OnDisable()
    {
       DialogueController.DialogueClosed -= EndDialogue;
+      
+      MenuController.BaseMenuOpening -= EnterPauseMode;
+      MenuController.BaseMenuClosed -= EnterPlayMode;
    }
 
    #endregion
@@ -52,21 +66,35 @@ public class GameController : MonoBehaviour
 
    public void EnterPlayMode()
    {
+      Time.timeScale = 1;
       // Esc changes the cursor visibility (ONLY in the unity editor!)
       Cursor.lockState = CursorLockMode.Locked;
       player.EnableInput();
+      menuController.enabled = true;
    }
 
    public void EnterDialogueMode()
    {
+      Time.timeScale = 1;
       Cursor.lockState = CursorLockMode.None;
       player.DisableInput();
+      menuController.enabled = false;
    }
 
    public void EnterCutsceneMode()
    {
+      Time.timeScale = 1;
       Cursor.lockState = CursorLockMode.None;
       player.DisableInput();
+      menuController.enabled = false;
+   }
+
+   public void EnterPauseMode()
+   {
+      Time.timeScale = 0;
+      Cursor.lockState = CursorLockMode.None;
+      player.DisableInput();
+      menuController.enabled = true;
    }
    
    #endregion
